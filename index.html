@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluxFit | Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <header id="header">
+      <a href="#hero" class="nav-brand">
+        <img src="FluxFit_logo.png" alt="FluxFit logo">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#beneficios">Por qué elegirnos</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="nav-action" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Empezá hoy</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+        &#9776;
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#sobre">Sobre nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#beneficios">Por qué elegirnos</a>
+      <a href="#planes">Planes</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a class="nav-action mobile-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Empezá hoy</a>
+    </div>
+
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">FluxFit | Gym</p>
+          <h1 class="hero-title">A una clase de empezar tu transformación.</h1>
+          <p class="hero-copy">Entrenamiento, seguimiento y comunidad para ayudarte a construir una mejor versión de vos mismo.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Probá una clase</a>
+            <a class="btn btn-secondary" href="#servicios">Conocé la experiencia Flux</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-device">
+            <img src="img/FluxFit_fondo.png" alt="App FluxFit en teléfono">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section hidden">
+      <div class="features-row">
+        <article class="feature-card">
+          <span class="feature-icon">🏋️</span>
+          <h3>Entrenamiento</h3>
+          <p>Clases grupales pensadas para todos los niveles.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">📱</span>
+          <h3>Tecnología</h3>
+          <p>Nuestra app te conecta con tu entrenamiento en todo momento.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3>Seguimiento</h3>
+          <p>Medimos tu progreso para que sigas evolucionando.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">👥</span>
+          <h3>Comunidad</h3>
+          <p>Un entorno que te motiva y te impulsa a seguir.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section video-section hidden" id="video">
+      <div class="section-row">
+        <h2 class="section-title">ENTRENÁ CON LA ACTITUD CORRECTA</h2>
+        <p class="section-subtitle">Mirá cómo entrenan nuestros bestias: técnica, potencia y foco premium en cada momento.</p>
+      </div>
+      <div class="video-wrap">
+        <iframe class="video-player" src="https://www.youtube.com/embed/9K0E_d5F5Rk?rel=0&modestbranding=1" title="Entrenamiento FluxFit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <main>
+      <section class="section hidden" id="sobre">
+        <div class="section-row">
+          <h2 class="section-title">SOBRE NOSOTROS</h2>
+          <p class="section-subtitle">FluxFit es el gimnasio de Buenos Aires donde entrenás con todo: equipamiento de primer nivel, entrenadores certificados y una comunidad que empuja para que cada sesión sea un desafío ganado.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <p>Tenemos un ambiente industrial, oscuro y poderoso con más de 200 máquinas, zonas de pesa libre, cardio y funcional. Abrimos temprano y cerramos tarde para que entrenes cuando vos quieras.</p>
+          </div>
+          <div class="about-card">
+            <p>Entrenadores listos para asesorarte, rutinas dinámicas y clases grupales que elevan tu estado físico. Acá cada entrenamiento se siente como una sesión con propósito.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hidden" id="servicios">
+        <div class="section-row">
+          <h2 class="section-title">SERVICIOS / DISCIPLINAS</h2>
+          <p class="section-subtitle">Elegí el modo que necesites: fuerza, resistencia, movilidad y trabajo en equipo en un solo lugar. Todo con onda, sin excusas.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <img src="img/musculacion.png" alt="Musculación">
+            </div>
+            <h3 class="service-title">Musculación</h3>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <img src="img/cardio.png" alt="Cardio">
+            </div>
+            <h3 class="service-title">Cardio</h3>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <img src="img/funcional.png" alt="Funcional">
+            </div>
+            <h3 class="service-title">Funcional</h3>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <img src="img/clases-grupales.png" alt="Clases Grupales">
+            </div>
+            <h3 class="service-title">Clases Grupales</h3>
+          </article>
+          
+        </div>
+      </section>
+
+      <section class="section hidden" id="beneficios">
+        <div class="section-row">
+          <h2 class="benefits-hero-title">BENEFICIOS DESTACADOS</h2>
+          <p class="benefits-intro">Multisedes, amplitude de programación, los mejores coaches y tecnología al servicio del rendimiento. Mirá lo que te ofrecemos.</p>
+        </div>
+
+        <div class="benefit-media-grid">
+          <article class="benefit-media-card">
+            <img class="benefit-img" src="https://images.unsplash.com/photo-1554284126-aa88f22d8c0e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7d6b2f3b5b8f9e1f" alt="Clases grupales">
+            <div class="benefit-caption">
+              <h4>Clases Grupales</h4>
+              <p>Entrenamientos en equipo con objetivos individuales; la app te guía y la clase te potencia.</p>
+            </div>
+          </article>
+
+          <article class="benefit-media-card">
+            <img class="benefit-img" src="https://images.unsplash.com/photo-1546484959-f48a2a1f0e9a?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=9d4b6f1b3c6f0b8a" alt="Pases multisede">
+            <div class="benefit-caption">
+              <h4>Pases Multi Sedes</h4>
+              <p>Adquirí membresía y entrená en cualquiera de nuestras sedes. Libertad total para entrenar.</p>
+            </div>
+          </article>
+
+          <article class="benefit-media-card">
+            <img class="benefit-img" src="https://images.unsplash.com/photo-1545235617-9465bbf1d8b1?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f4d7a8a5c1f6e9b" alt="App móvil">
+            <div class="benefit-caption">
+              <h4>APP Mobile</h4>
+              <p>Entrená donde quieras con rutinas, tracking y contenido exclusivo para members.</p>
+            </div>
+          </article>
+
+          <article class="benefit-media-card">
+            <img class="benefit-img" src="https://images.unsplash.com/photo-1526403224740-1b4a1b9a9c8f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a8c3d4e6b7c9d2e" alt="Outdoor training">
+            <div class="benefit-caption">
+              <h4>Outdoor Training</h4>
+              <p>Sesiones al aire libre: running, cycling y circuitos para variar el estímulo y disfrutar el aire.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section hidden" id="planes">
+        <div class="section-row">
+          <h2 class="section-title">PLANES / MEMBRESÍAS</h2>
+          <p class="section-subtitle">Elegí el plan que se adapta a tu ritmo y consultanos para arrancar con fuerza.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="plan-card">
+            <p class="plan-label">Mensual</p>
+            <p class="plan-copy">Entrená un mes completo con acceso total al gym y las clases incluidas. Consultanos para más detalles.</p>
+            <a class="plan-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultanos</a>
+          </article>
+          <article class="plan-card">
+            <p class="plan-label">Trimestral</p>
+            <p class="plan-copy">Compromiso de 3 meses para avanzar rápido y crear rutina. Ideal para quienes quieren resultados reales.</p>
+            <a class="plan-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultanos</a>
+          </article>
+          <article class="plan-card">
+            <p class="plan-label">Anual</p>
+            <p class="plan-copy">Tu mejor opción para mantener la constancia y alcanzar metas grandes con apoyo continuo.</p>
+            <a class="plan-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultanos</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section hidden" id="ubicacion">
+        <div class="section-row">
+          <h2 class="section-title">UBICACIÓN Y CONTACTO</h2>
+          <p class="section-subtitle">Estamos en el corazón de la ciudad, listos para recibirte con energía, música potente y un clima ideal para entrenar.</p>
+        </div>
+        <div class="location-grid">
+          <div class="location-content">
+            <div class="location-card">
+              <div class="location-header">
+                <div class="location-badge">📍 SEDE PRINCIPAL</div>
+                <h3>FluxFit Independencia</h3>
+              </div>
+              <p class="location-copy">El lugar donde entrenás con actitud, rutina y respaldo profesional. Máquinas top, coaches certificados y una comunidad que no para.</p>
+              
+              <div class="contact-items">
+                <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" class="contact-item whatsapp-link">
+                  <span class="contact-icon">💬</span>
+                  <div class="contact-info">
+                    <div class="contact-label">WhatsApp</div>
+                    <div class="contact-value">+54 9 11 3672-7717</div>
+                  </div>
+                </a>
+                
+                <div class="contact-item">
+                  <span class="contact-icon">📍</span>
+                  <div class="contact-info">
+                    <div class="contact-label">Dirección</div>
+                    <div class="contact-value">Av. Independencia 2974, Buenos Aires</div>
+                  </div>
+                </div>
+                
+                <div class="contact-item">
+                  <span class="contact-icon">🕒</span>
+                  <div class="contact-info">
+                    <div class="contact-label">Horario Lunes-Viernes</div>
+                    <div class="contact-value">6:00 - 23:00</div>
+                  </div>
+                </div>
+                
+                <div class="contact-item">
+                  <span class="contact-icon">🕒</span>
+                  <div class="contact-info">
+                    <div class="contact-label">Horario Sábado-Domingo</div>
+                    <div class="contact-value">8:00 - 20:00</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="location-cta">
+                <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" class="btn btn-primary">Consultanos por WhatsApp</a>
+                <a href="https://www.google.com/maps/place/Av.+Independencia+2974,+CABA/@-34.618512,-58.389927,17z" target="_blank" rel="noreferrer" class="btn btn-secondary">Ver en Google Maps</a>
+              </div>
+            </div>
+          </div>
+          
+          <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.991125503279!2d-58.38992738423587!3d-34.61851268045456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc49268135%3A0x4e32abc9dcd4d37d!2sAv.%20Independencia%202974%2C%20CABA!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="FluxFit_logo_blanco.png" alt="FluxFit logo" style="height:30px; width:auto; filter: drop-shadow(0 0 6px rgba(241,88,34,0.25));">
+            <p>Entrená con fuerza, estilo y una comunidad que no para.</p>
+          </div>
+          <div class="footer-links">
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+            <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+        <p class="footer-copy">© 2025 FluxFit. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" aria-label="WhatsApp FluxFit">
+      <span>💬</span>
+    </a>
+  </div>
+
+  <script>
+    const header = document.getElementById('header');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      mobileToggle.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    links.forEach(link => {
+      if (link.hash.startsWith('#')) {
+        link.addEventListener('click', (event) => {
+          const targetId = link.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+    });
+
+    const observerOptions = {
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

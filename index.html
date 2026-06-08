@@ -267,7 +267,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 28px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.18));
       border-radius: 12px;
       padding: 34px;
       margin-top: 18px;
@@ -472,6 +471,55 @@
       .coaches { grid-template-columns: 1fr; }
     }
 
+    /* Banner quote variant with background image */
+    .banner-quote {
+      background-image: url('img/FluxFit_fondo.png');
+      background-size: cover;
+      background-position: center left;
+      position: relative;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .banner-quote::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(7,7,7,0.75) 20%, rgba(7,7,7,0.35) 60%, rgba(7,7,7,0.85) 100%);
+      pointer-events: none;
+    }
+
+    .banner-left, .banner-right { position: relative; z-index: 2; }
+
+    .banner-left h3 {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .banner-right { display:flex; align-items:center; justify-content:center; }
+
+    .banner-right p { margin:0; color: rgba(255,255,255,0.85); max-width:320px; }
+
+    /* Orange divider on right like the reference */
+    .banner-right::before {
+      content: '';
+      width: 4px;
+      height: 64px;
+      background: var(--accent);
+      margin-right: 18px;
+      display: inline-block;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 760px) {
+      .banner-left h3 { font-size: 1.4rem; }
+      .banner-right::before { display:none; }
+    }
+
     @media (max-width: 760px) {
       .nav { display: none; }
       .hero { padding-top: 44px; }
@@ -563,12 +611,12 @@
         </div>
       </div>
 
-      <div class="app-quote">
-        <div class="quote-left">
-          <h3>El movimiento no es solo físico.<br>Es disciplina.<br>Es energía.<br>Es intención.<br><span class="orange">ES TRANSFORMACIÓN.</span></h3>
+      <div class="app-quote banner-quote">
+        <div class="banner-left">
+          <h3>EL MOVIMIENTO NO ES SOLO FÍSICO.<br>ES DISCIPLINA.<br>ES ENERGÍA.<br>ES INTENCIÓN.<br><span class="orange">ES TRANSFORMACIÓN.</span></h3>
         </div>
-        <div class="quote-right">
-          <p>Cada entrenamiento es una oportunidad para avanzar. Cada clase es un paso más.</p>
+        <div class="banner-right">
+          <p>Cada entrenamiento es una oportunidad para avanzar.<br>Cada clase es un paso más.</p>
         </div>
       </div>
     </section>

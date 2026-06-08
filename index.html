@@ -3,351 +3,586 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluxFit | Gym</title>
+  <title>FluxFit | Transformación</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    :root {
+      --bg: #070707;
+      --surface: rgba(255,255,255,0.08);
+      --surface-strong: rgba(255,255,255,0.12);
+      --text: #fafafa;
+      --muted: rgba(255,255,255,0.72);
+      --accent: #ff5b14;
+      --accent-dark: #d9450f;
+      --border: rgba(255,255,255,0.12);
+      --radius: 28px;
+      --shadow: 0 28px 80px rgba(0,0,0,0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #050505;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      height: 40px;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav a:hover { opacity: 1; }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 30px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 20px 40px rgba(255,91,20,0.25);
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-hero:hover { transform: translateY(-2px); background: var(--accent-dark); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.05fr) minmax(320px, 0.95fr);
+      gap: 48px;
+      align-items: center;
+      min-height: 88vh;
+      padding: 60px 0 40px;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-size: 0.85rem;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-text {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .hero-visual {
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-phone {
+      position: relative;
+      width: min(420px, 100%);
+      border-radius: 38px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+      background: #111;
+    }
+
+    .hero-phone::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-light {
+      background: #0f0f0f;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 36px 32px;
+      margin: 0 -24px 40px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 155px;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,91,20,0.15);
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .feature-title {
+      margin: 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .feature-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .app-section {
+      display: grid;
+      grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr);
+      gap: 24px;
+      margin: 64px 0 40px;
+    }
+
+    .app-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .app-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 22px 42px rgba(0,0,0,0.35);
+    }
+
+    .app-card h3 {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .app-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .section-split {
+      display: grid;
+      grid-template-columns: minmax(320px, 1fr) minmax(420px, 1.1fr);
+      gap: 34px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+
+    .section-split .text-block h2 {
+      margin: 0 0 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+    }
+
+    .section-split .text-block p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .section-split .text-block ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .section-split .text-block li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .section-split .text-block li::before {
+      content: '•';
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .section-split .image-block {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .section-split .image-block img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .coaches {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-bottom: 56px;
+    }
+
+    .coach-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 30px 24px;
+      display: grid;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .coach-avatar {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+    }
+
+    .coach-name {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+    }
+
+    .coach-role {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .coach-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .faq {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 56px;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 22px 24px;
+    }
+
+    .faq-question {
+      margin: 0 0 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .faq-answer {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 24px 0 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1060px) {
+      .hero { grid-template-columns: 1fr; }
+      .app-section { grid-template-columns: 1fr; }
+      .section-split { grid-template-columns: 1fr; }
+      .coaches { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .nav { display: none; }
+      .hero { padding-top: 44px; }
+      .hero-title { font-size: clamp(2.6rem, 8vw, 4rem); }
+      .hero-copy { font-size: 0.98rem; }
+      .features { grid-template-columns: 1fr; }
+      .section-light { margin: 0; border-radius: 0; }
+      .page { padding: 0 18px 30px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-wrap">
-    <header id="header">
-      <a href="#hero" class="nav-brand">
-        <img src="FluxFit_logo.png" alt="FluxFit logo">
+  <div class="page">
+    <header>
+      <a href="#hero" class="logo-link">
+        <img src="FluxFit_logo.png" alt="FluxFit logo" class="logo-img">
       </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#sobre">Sobre nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#beneficios">Por qué elegirnos</a></li>
-          <li><a href="#planes">Planes</a></li>
-          <li><a href="#ubicacion">Ubicación</a></li>
-        </ul>
+      <nav class="nav">
+        <a href="#hero">Experiencia Flux</a>
+        <a href="#app">App</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#faq">FAQ</a>
       </nav>
-
-      <div class="nav-actions">
-        <a class="nav-action" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Empezá hoy</a>
-      </div>
-
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
-        &#9776;
-      </button>
+      <a class="btn-hero" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Probá una clase</a>
     </header>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#sobre">Sobre nosotros</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#beneficios">Por qué elegirnos</a>
-      <a href="#planes">Planes</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a class="nav-action mobile-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Empezá hoy</a>
-    </div>
-
     <section class="hero" id="hero">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">FluxFit | Gym</p>
-          <h1 class="hero-title">A una clase de empezar tu transformación.</h1>
-          <p class="hero-copy">Entrenamiento, seguimiento y comunidad para ayudarte a construir una mejor versión de vos mismo.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Probá una clase</a>
-            <a class="btn btn-secondary" href="#servicios">Conocé la experiencia Flux</a>
-          </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Powered by transformation</p>
+        <h1 class="hero-title">A una clase de empezar tu transformación.</h1>
+        <p class="hero-text">Entrenamiento, seguimiento y comunidad para ayudarte a construir una mejor versión de vos mismo.</p>
+        <div class="hero-buttons">
+          <a class="btn-hero" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Probá una clase</a>
+          <a class="btn-hero" style="background: transparent; color: white; border: 1px solid rgba(255,255,255,0.25);" href="#app">Conocé la experiencia Flux</a>
         </div>
-        <div class="hero-visual">
-          <div class="hero-device">
-            <img src="img/FluxFit_fondo.png" alt="App FluxFit en teléfono">
-          </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-phone">
+          <img src="img/FluxFit_fondo.png" alt="App FluxFit en teléfono">
         </div>
       </div>
     </section>
 
-    <section class="section features-section hidden">
-      <div class="features-row">
-        <article class="feature-card">
+    <section class="section-light">
+      <div style="display:grid; gap:18px; max-width:860px; margin:0 auto; text-align:center; color: var(--text);">
+        <p style="margin:0; font-family:'Barlow Condensed', sans-serif; font-size:0.95rem; letter-spacing:0.18em; text-transform:uppercase; color: var(--accent);">Entrenar es solo una parte.</p>
+        <h2 style="margin:0; font-size:2rem; font-family:'Barlow Condensed',sans-serif; letter-spacing:-0.04em;">La experiencia Flux combina entrenamiento, tecnología, seguimiento y comunidad para generar progreso constante.</h2>
+      </div>
+      <div class="features">
+        <article class="feature">
           <span class="feature-icon">🏋️</span>
-          <h3>Entrenamiento</h3>
-          <p>Clases grupales pensadas para todos los niveles.</p>
+          <h3 class="feature-title">Entrenamiento</h3>
+          <p class="feature-copy">Clases grupales pensadas para todos los niveles.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature">
           <span class="feature-icon">📱</span>
-          <h3>Tecnología</h3>
-          <p>Nuestra app te conecta con tu entrenamiento en todo momento.</p>
+          <h3 class="feature-title">Tecnología</h3>
+          <p class="feature-copy">Nuestra app te conecta con tu entrenamiento en todo momento.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature">
           <span class="feature-icon">📊</span>
-          <h3>Seguimiento</h3>
-          <p>Medimos tu progreso para que sigas evolucionando.</p>
+          <h3 class="feature-title">Seguimiento</h3>
+          <p class="feature-copy">Medimos tu progreso para que sigas evolucionando.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature">
           <span class="feature-icon">👥</span>
-          <h3>Comunidad</h3>
-          <p>Un entorno que te motiva y te impulsa a seguir.</p>
+          <h3 class="feature-title">Comunidad</h3>
+          <p class="feature-copy">Un entorno que te motiva y te impulsa a seguir.</p>
         </article>
       </div>
     </section>
 
-    <section class="section video-section hidden" id="video">
-      <div class="section-row">
-        <h2 class="section-title">ENTRENÁ CON LA ACTITUD CORRECTA</h2>
-        <p class="section-subtitle">Mirá cómo entrenan nuestros bestias: técnica, potencia y foco premium en cada momento.</p>
+    <section id="app">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:32px;">
+        <div>
+          <p class="eyebrow">Tu entrenamiento siempre con vos.</p>
+          <h2 style="margin:0; font-family:'Barlow Condensed', sans-serif; font-size:2.6rem; letter-spacing:-0.04em;">La App Flux te acompaña antes, durante y después de cada clase.</h2>
+        </div>
       </div>
-      <div class="video-wrap">
-        <iframe class="video-player" src="https://www.youtube.com/embed/9K0E_d5F5Rk?rel=0&modestbranding=1" title="Entrenamiento FluxFit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="app-section">
+        <article class="app-card">
+          <img src="img/FluxFit_fondo.png" alt="Planificá">
+          <h3>Planificá</h3>
+          <p>Reservá y organizá tus entrenamientos con estructura clara y objetivos definidos.</p>
+        </article>
+        <article class="app-card">
+          <img src="img/FluxFit_fondo.png" alt="Entrená">
+          <h3>Entrená</h3>
+          <p>Accedé a tu programación desde cualquier lugar y con los mejores contenidos.</p>
+        </article>
+        <article class="app-card">
+          <img src="img/FluxFit_fondo.png" alt="Registrá">
+          <h3>Registrá</h3>
+          <p>Visualizá tu progreso en tiempo real y ajustá tu plan con información concreta.</p>
+        </article>
       </div>
     </section>
 
-    <main>
-      <section class="section hidden" id="sobre">
-        <div class="section-row">
-          <h2 class="section-title">SOBRE NOSOTROS</h2>
-          <p class="section-subtitle">FluxFit es el gimnasio de Buenos Aires donde entrenás con todo: equipamiento de primer nivel, entrenadores certificados y una comunidad que empuja para que cada sesión sea un desafío ganado.</p>
-        </div>
-        <div class="about-grid">
-          <div class="about-card">
-            <p>Tenemos un ambiente industrial, oscuro y poderoso con más de 200 máquinas, zonas de pesa libre, cardio y funcional. Abrimos temprano y cerramos tarde para que entrenes cuando vos quieras.</p>
-          </div>
-          <div class="about-card">
-            <p>Entrenadores listos para asesorarte, rutinas dinámicas y clases grupales que elevan tu estado físico. Acá cada entrenamiento se siente como una sesión con propósito.</p>
-          </div>
-        </div>
-      </section>
+    <section class="section-split">
+      <div class="text-block">
+        <h2>Flux Class</h2>
+        <p>Nuestra experiencia principal combina entrenamiento grupal con programación guiada y seguimiento desde la app. Ideal para quienes buscan resultados reales sin perder la motivación.</p>
+        <ul>
+          <li>Entrenamiento grupal con objetivos individuales.</li>
+          <li>Programación guiada y escalable.</li>
+          <li>Seguimiento desde la app y comunidad activa.</li>
+        </ul>
+        <a class="btn-hero" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" style="margin-top:24px;">Probá una clase</a>
+      </div>
+      <div class="image-block">
+        <img src="img/FluxFit_fondo.png" alt="Clase FluxFit">
+      </div>
+    </section>
 
-      <section class="section hidden" id="servicios">
-        <div class="section-row">
-          <h2 class="section-title">SERVICIOS / DISCIPLINAS</h2>
-          <p class="section-subtitle">Elegí el modo que necesites: fuerza, resistencia, movilidad y trabajo en equipo en un solo lugar. Todo con onda, sin excusas.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="img/musculacion.png" alt="Musculación">
-            </div>
-            <h3 class="service-title">Musculación</h3>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="img/cardio.png" alt="Cardio">
-            </div>
-            <h3 class="service-title">Cardio</h3>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="img/funcional.png" alt="Funcional">
-            </div>
-            <h3 class="service-title">Funcional</h3>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="img/clases-grupales.png" alt="Clases Grupales">
-            </div>
-            <h3 class="service-title">Clases Grupales</h3>
-          </article>
-          
-        </div>
-      </section>
+    <section class="coaches" id="coaches">
+      <article class="coach-card">
+        <div class="coach-avatar">R</div>
+        <p class="coach-name">Rodri</p>
+        <p class="coach-role">Head Coach</p>
+        <p class="coach-copy">Especialista en entrenamiento funcional y rendimiento.</p>
+      </article>
+      <article class="coach-card">
+        <div class="coach-avatar">N</div>
+        <p class="coach-name">Nati</p>
+        <p class="coach-role">Coach</p>
+        <p class="coach-copy">Especialista en fuerza y movimiento, enfocada en técnica y progreso.</p>
+      </article>
+      <article class="coach-card">
+        <div class="coach-avatar">F</div>
+        <p class="coach-name">Fede</p>
+        <p class="coach-role">Coach</p>
+        <p class="coach-copy">Experto en acondicionamiento y salud para un entrenamiento sostenible.</p>
+      </article>
+    </section>
 
-      <section class="section hidden" id="beneficios">
-        <div class="section-row">
-          <h2 class="benefits-hero-title">BENEFICIOS DESTACADOS</h2>
-          <p class="benefits-intro">Multisedes, amplitude de programación, los mejores coaches y tecnología al servicio del rendimiento. Mirá lo que te ofrecemos.</p>
-        </div>
-
-        <div class="benefit-media-grid">
-          <article class="benefit-media-card">
-            <img class="benefit-img" src="https://images.unsplash.com/photo-1554284126-aa88f22d8c0e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7d6b2f3b5b8f9e1f" alt="Clases grupales">
-            <div class="benefit-caption">
-              <h4>Clases Grupales</h4>
-              <p>Entrenamientos en equipo con objetivos individuales; la app te guía y la clase te potencia.</p>
-            </div>
-          </article>
-
-          <article class="benefit-media-card">
-            <img class="benefit-img" src="https://images.unsplash.com/photo-1546484959-f48a2a1f0e9a?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=9d4b6f1b3c6f0b8a" alt="Pases multisede">
-            <div class="benefit-caption">
-              <h4>Pases Multi Sedes</h4>
-              <p>Adquirí membresía y entrená en cualquiera de nuestras sedes. Libertad total para entrenar.</p>
-            </div>
-          </article>
-
-          <article class="benefit-media-card">
-            <img class="benefit-img" src="https://images.unsplash.com/photo-1545235617-9465bbf1d8b1?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f4d7a8a5c1f6e9b" alt="App móvil">
-            <div class="benefit-caption">
-              <h4>APP Mobile</h4>
-              <p>Entrená donde quieras con rutinas, tracking y contenido exclusivo para members.</p>
-            </div>
-          </article>
-
-          <article class="benefit-media-card">
-            <img class="benefit-img" src="https://images.unsplash.com/photo-1526403224740-1b4a1b9a9c8f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a8c3d4e6b7c9d2e" alt="Outdoor training">
-            <div class="benefit-caption">
-              <h4>Outdoor Training</h4>
-              <p>Sesiones al aire libre: running, cycling y circuitos para variar el estímulo y disfrutar el aire.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section hidden" id="planes">
-        <div class="section-row">
-          <h2 class="section-title">PLANES / MEMBRESÍAS</h2>
-          <p class="section-subtitle">Elegí el plan que se adapta a tu ritmo y consultanos para arrancar con fuerza.</p>
-        </div>
-        <div class="plans-grid">
-          <article class="plan-card">
-            <p class="plan-label">Mensual</p>
-            <p class="plan-copy">Entrená un mes completo con acceso total al gym y las clases incluidas. Consultanos para más detalles.</p>
-            <a class="plan-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultanos</a>
-          </article>
-          <article class="plan-card">
-            <p class="plan-label">Trimestral</p>
-            <p class="plan-copy">Compromiso de 3 meses para avanzar rápido y crear rutina. Ideal para quienes quieren resultados reales.</p>
-            <a class="plan-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultanos</a>
-          </article>
-          <article class="plan-card">
-            <p class="plan-label">Anual</p>
-            <p class="plan-copy">Tu mejor opción para mantener la constancia y alcanzar metas grandes con apoyo continuo.</p>
-            <a class="plan-cta" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultanos</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section hidden" id="ubicacion">
-        <div class="section-row">
-          <h2 class="section-title">UBICACIÓN Y CONTACTO</h2>
-          <p class="section-subtitle">Estamos en el corazón de la ciudad, listos para recibirte con energía, música potente y un clima ideal para entrenar.</p>
-        </div>
-        <div class="location-grid">
-          <div class="location-content">
-            <div class="location-card">
-              <div class="location-header">
-                <div class="location-badge">📍 SEDE PRINCIPAL</div>
-                <h3>FluxFit Independencia</h3>
-              </div>
-              <p class="location-copy">El lugar donde entrenás con actitud, rutina y respaldo profesional. Máquinas top, coaches certificados y una comunidad que no para.</p>
-              
-              <div class="contact-items">
-                <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" class="contact-item whatsapp-link">
-                  <span class="contact-icon">💬</span>
-                  <div class="contact-info">
-                    <div class="contact-label">WhatsApp</div>
-                    <div class="contact-value">+54 9 11 3672-7717</div>
-                  </div>
-                </a>
-                
-                <div class="contact-item">
-                  <span class="contact-icon">📍</span>
-                  <div class="contact-info">
-                    <div class="contact-label">Dirección</div>
-                    <div class="contact-value">Av. Independencia 2974, Buenos Aires</div>
-                  </div>
-                </div>
-                
-                <div class="contact-item">
-                  <span class="contact-icon">🕒</span>
-                  <div class="contact-info">
-                    <div class="contact-label">Horario Lunes-Viernes</div>
-                    <div class="contact-value">6:00 - 23:00</div>
-                  </div>
-                </div>
-                
-                <div class="contact-item">
-                  <span class="contact-icon">🕒</span>
-                  <div class="contact-info">
-                    <div class="contact-label">Horario Sábado-Domingo</div>
-                    <div class="contact-value">8:00 - 20:00</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="location-cta">
-                <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" class="btn btn-primary">Consultanos por WhatsApp</a>
-                <a href="https://www.google.com/maps/place/Av.+Independencia+2974,+CABA/@-34.618512,-58.389927,17z" target="_blank" rel="noreferrer" class="btn btn-secondary">Ver en Google Maps</a>
-              </div>
-            </div>
-          </div>
-          
-          <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.991125503279!2d-58.38992738423587!3d-34.61851268045456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabc49268135%3A0x4e32abc9dcd4d37d!2sAv.%20Independencia%202974%2C%20CABA!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </section>
-    </main>
+    <section class="faq" id="faq">
+      <article class="faq-item">
+        <h3 class="faq-question">¿Puedo probar una clase?</h3>
+        <p class="faq-answer">Sí, ofrecemos una primera clase de prueba para que conozcas la experiencia Flux sin compromiso.</p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-question">¿Qué incluye la membresía?</h3>
+        <p class="faq-answer">Acceso al gym, clases grupales, app, seguimiento y beneficios en todas nuestras sedes.</p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-question">¿Cómo reservo una clase?</h3>
+        <p class="faq-answer">Reservás directamente desde nuestro WhatsApp o a través de la app Flux en tu celular.</p>
+      </article>
+      <article class="faq-item">
+        <h3 class="faq-question">¿Qué necesito para empezar?</h3>
+        <p class="faq-answer">Solo ganas de entrenar. Te acompañamos con un plan inicial y la energía para arrancar en serio.</p>
+      </article>
+    </section>
 
     <footer>
-      <div class="footer-grid">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <img src="FluxFit_logo_blanco.png" alt="FluxFit logo" style="height:30px; width:auto; filter: drop-shadow(0 0 6px rgba(241,88,34,0.25));">
-            <p>Entrená con fuerza, estilo y una comunidad que no para.</p>
-          </div>
-          <div class="footer-links">
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook</a>
-            <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">WhatsApp</a>
-          </div>
-        </div>
-        <p class="footer-copy">© 2025 FluxFit. Todos los derechos reservados.</p>
+      <div>© 2026 FluxFit</div>
+      <div style="display:flex; gap:16px; color: var(--muted);">
+        <span>Instagram</span>
+        <span>Facebook</span>
+        <span>WhatsApp</span>
       </div>
     </footer>
-
-    <a class="whatsapp-float" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer" aria-label="WhatsApp FluxFit">
-      <span>💬</span>
-    </a>
   </div>
-
-  <script>
-    const header = document.getElementById('header');
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    mobileToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      mobileToggle.classList.toggle('open');
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    });
-
-    links.forEach(link => {
-      if (link.hash.startsWith('#')) {
-        link.addEventListener('click', (event) => {
-          const targetId = link.getAttribute('href').slice(1);
-          const target = document.getElementById(targetId);
-          if (target) {
-            event.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      }
-    });
-
-    const observerOptions = {
-      threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.section').forEach(section => {
-      observer.observe(section);
-    });
-  </script>
 </body>
 </html>

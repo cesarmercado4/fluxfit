@@ -232,6 +232,54 @@
       margin: 64px 0 40px;
     }
 
+    /* App hero with phone mockups */
+    .app-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin: 48px 0 24px;
+    }
+
+    .app-hero-copy {
+      max-width: 620px;
+    }
+
+    .app-hero-title {
+      margin: 8px 0 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+    }
+
+    .app-hero-text { color: var(--muted); margin-top:18px; }
+
+    .app-phones { display:flex; justify-content:center; }
+
+    .phones-grid { display:flex; gap:18px; align-items:flex-end; }
+
+    .phones-grid img { width: 160px; border-radius: 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.06); transform: translateY(0); transition: transform 0.28s ease; }
+
+    .phones-grid img:hover { transform: translateY(-8px) scale(1.02); }
+
+    .app-quote {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.18));
+      border-radius: 12px;
+      padding: 34px;
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .app-quote h3 { margin:0; font-family:'Barlow Condensed',sans-serif; font-size:2.2rem; line-height:1.04; color: #fff; }
+
+    .app-quote .orange { color: var(--accent); display:block; margin-top:6px; }
+
+    .app-quote p { margin:0; color:var(--muted); }
+
     .app-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.1);
@@ -417,6 +465,9 @@
     @media (max-width: 1060px) {
       .hero { grid-template-columns: 1fr; }
       .app-section { grid-template-columns: 1fr; }
+      .app-hero { grid-template-columns: 1fr; }
+      .app-phones { margin-top: 8px; }
+      .app-quote { grid-template-columns: 1fr; }
       .section-split { grid-template-columns: 1fr; }
       .coaches { grid-template-columns: 1fr; }
     }
@@ -494,28 +545,31 @@
     </section>
 
     <section id="app">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:32px;">
-        <div>
+      <div class="app-hero">
+        <div class="app-hero-copy">
           <p class="eyebrow">Tu entrenamiento siempre con vos.</p>
-          <h2 style="margin:0; font-family:'Barlow Condensed', sans-serif; font-size:2.6rem; letter-spacing:-0.04em;">La App Flux te acompaña antes, durante y después de cada clase.</h2>
+          <h2 class="app-hero-title">La App Flux te acompaña antes, durante y después de cada clase.</h2>
+          <p class="app-hero-text">La App Flux te permite planificar, entrenar y registrar tu progreso en tiempo real, conectando tu experiencia con la comunidad y los coaches.</p>
+          <div class="hero-buttons">
+            <a class="btn-hero" href="#app">PROBÁ LA APP</a>
+          </div>
+        </div>
+        <div class="app-phones">
+          <div class="phones-grid">
+            <img src="img/FluxFit_fondo.png" alt="App pantalla 1">
+            <img src="img/FluxFit_fondo.png" alt="App pantalla 2">
+            <img src="img/FluxFit_fondo.png" alt="App pantalla 3">
+          </div>
         </div>
       </div>
-      <div class="app-section">
-        <article class="app-card">
-          <img src="img/FluxFit_fondo.png" alt="Planificá">
-          <h3>Planificá</h3>
-          <p>Reservá y organizá tus entrenamientos con estructura clara y objetivos definidos.</p>
-        </article>
-        <article class="app-card">
-          <img src="img/FluxFit_fondo.png" alt="Entrená">
-          <h3>Entrená</h3>
-          <p>Accedé a tu programación desde cualquier lugar y con los mejores contenidos.</p>
-        </article>
-        <article class="app-card">
-          <img src="img/FluxFit_fondo.png" alt="Registrá">
-          <h3>Registrá</h3>
-          <p>Visualizá tu progreso en tiempo real y ajustá tu plan con información concreta.</p>
-        </article>
+
+      <div class="app-quote">
+        <div class="quote-left">
+          <h3>El movimiento no es solo físico.<br>Es disciplina.<br>Es energía.<br>Es intención.<br><span class="orange">ES TRANSFORMACIÓN.</span></h3>
+        </div>
+        <div class="quote-right">
+          <p>Cada entrenamiento es una oportunidad para avanzar. Cada clase es un paso más.</p>
+        </div>
       </div>
     </section>
 

@@ -12,31 +12,24 @@
     :root {
       --bg: #070707;
       --surface: rgba(255,255,255,0.08);
-      --surface-strong: rgba(255,255,255,0.12);
       --text: #fafafa;
       --muted: rgba(255,255,255,0.72);
       --accent: #ff5b14;
       --accent-dark: #d9450f;
       --border: rgba(255,255,255,0.12);
-      --radius: 28px;
       --shadow: 0 28px 80px rgba(0,0,0,0.45);
       --section-space: clamp(56px, 8vw, 110px);
       --section-space-tight: clamp(28px, 4vw, 52px);
     }
 
     * { box-sizing: border-box; }
-    html {
-      min-height: 100%;
-      scroll-behavior: smooth;
-      background: #050505;
-    }
+    html { min-height: 100%; scroll-behavior: smooth; background: #050505; }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: 'Inter', sans-serif;
       color: var(--text);
-      position: relative;
       overflow-x: hidden;
       background: #050505;
       line-height: 1.6;
@@ -46,8 +39,6 @@
     img { max-width: 100%; display: block; }
 
     .page {
-      position: relative;
-      z-index: 1;
       width: min(1240px, 100%);
       margin: 0 auto;
       padding: 0 clamp(18px, 4vw, 36px) 72px;
@@ -59,35 +50,19 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 28px 0 16px;
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(5,5,5,0.88);
-      backdrop-filter: blur(12px);
+      background: rgba(5,5,5,0.9);
+      backdrop-filter: blur(14px);
       margin: 0 clamp(-18px,-4vw,-36px);
-      padding-left: clamp(18px,4vw,36px);
-      padding-right: clamp(18px,4vw,36px);
+      padding: 18px clamp(18px,4vw,36px);
     }
 
-    .logo-link {
-      display: flex;
-      align-items: center;
-      height: 38px;
-      flex-shrink: 0;
-    }
+    .logo-link { display: flex; align-items: center; height: 38px; flex-shrink: 0; }
+    .logo-img  { height: 38px; width: auto; display: block; }
 
-    .logo-img {
-      height: 38px;
-      width: auto;
-      display: block;
-    }
-
-    .nav {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
+    .nav { display: flex; gap: 28px; align-items: center; }
 
     .nav a {
       font-family: 'Barlow Condensed', sans-serif;
@@ -97,7 +72,7 @@
       letter-spacing: 0.12em;
       color: var(--text);
       opacity: 0.82;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s, color 0.2s;
       white-space: nowrap;
     }
 
@@ -119,7 +94,7 @@
       font-weight: 700;
       box-shadow: 0 16px 36px rgba(255,91,20,0.28);
       border: 1px solid transparent;
-      transition: transform 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s, background 0.25s;
       white-space: nowrap;
     }
 
@@ -139,25 +114,20 @@
       text-transform: uppercase;
       font-weight: 700;
       border: 1px solid rgba(255,255,255,0.25);
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s, border-color 0.25s, background 0.25s;
       white-space: nowrap;
     }
 
     .btn-outline:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
 
-    /* ── SECTION HEADER (shared) ── */
-    .section-header {
-      text-align: center;
-      margin-bottom: 44px;
-    }
-
-    .section-header .section-title {
-      margin: 8px 0 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.02;
+    /* ── EYEBROW ── */
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-size: 0.82rem;
     }
 
     /* ── HERO ── */
@@ -171,15 +141,6 @@
     }
 
     .hero-copy { max-width: 560px; }
-
-    .eyebrow {
-      margin: 0 0 16px;
-      color: var(--accent);
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      font-size: 0.82rem;
-    }
 
     .hero-title {
       margin: 0;
@@ -225,12 +186,7 @@
       z-index: 1;
     }
 
-    .hero-phone img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .hero-phone img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ── FEATURES ── */
     .section-light {
@@ -265,7 +221,6 @@
       place-items: center;
       border-radius: 50%;
       background: rgba(255,91,20,0.15);
-      color: var(--accent);
       font-size: 1.2rem;
       flex-shrink: 0;
     }
@@ -283,6 +238,47 @@
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.65;
+    }
+
+    /* ── WHY FLUX ── */
+    .why-section {
+      margin-bottom: var(--section-space);
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15,15,15,0.72);
+      padding: clamp(44px, 7vw, 80px) clamp(28px, 7vw, 88px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .why-title {
+      margin: 8px 0 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+    }
+
+    .why-hook {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .why-body {
+      max-width: 660px;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 1.6vw, 1.06rem);
+      line-height: 1.85;
+      margin: 0;
     }
 
     /* ── APP SECTION ── */
@@ -343,7 +339,7 @@
       gap: clamp(22px, 4vw, 42px);
       border-radius: 28px;
       padding: clamp(28px, 4vw, 44px);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,91,20,0.15);
       background: linear-gradient(135deg, rgba(255,91,20,0.06) 0%, rgba(7,7,7,0.6) 100%);
     }
 
@@ -358,340 +354,26 @@
     .app-quote .orange { color: var(--accent); display: block; margin-top: 4px; }
     .app-quote p { margin: 0; color: var(--muted); align-self: center; }
 
-    /* ── FLUX CLASS ── */
-    .section-split {
-      display: grid;
-      grid-template-columns: minmax(280px, 1fr) minmax(360px, 1.1fr);
-      gap: clamp(32px, 6vw, 88px);
-      align-items: center;
-      margin-bottom: var(--section-space);
-    }
-
-    .section-split .text-block h2 {
-      margin: 0 0 16px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.02;
-      text-transform: uppercase;
-    }
-
-    .section-split .text-block p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .section-split .text-block ul {
-      margin: 0 0 28px;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .section-split .text-block li {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: var(--muted);
-    }
-
-    .section-split .text-block li::before {
-      content: '•';
-      color: var(--accent);
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-
-    .section-split .image-block {
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .section-split .image-block img {
-      width: 100%;
-      height: 100%;
-      min-height: 420px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ── WHY FLUX ── */
-    .why-section {
-      margin-bottom: var(--section-space);
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(15,15,15,0.72);
-      padding: clamp(44px, 7vw, 80px) clamp(28px, 7vw, 88px);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .why-title {
-      margin: 8px 0 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 0.98;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
-      max-width: 780px;
-    }
-
-    .why-body {
-      max-width: 680px;
-      color: var(--muted);
-      font-size: clamp(0.98rem, 1.6vw, 1.08rem);
-      line-height: 1.85;
-      margin: 0;
-    }
-
-    .why-close {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    .why-close .accent { color: var(--accent); }
-
-    /* ── PRICING ── */
-    .pricing {
-      margin-bottom: var(--section-space);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .pricing-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 28px;
-      padding: 32px 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .pricing-card:hover { border-color: rgba(255,91,20,0.4); transform: translateY(-4px); }
-
-    .pricing-card.featured {
-      border-color: var(--accent);
-      background: rgba(255,91,20,0.06);
-      position: relative;
-    }
-
-    .pricing-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-      align-self: flex-start;
-    }
-
-    .pricing-plan {
-      margin: 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-    }
-
-    .pricing-price {
-      margin: 14px 0 4px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 4vw, 3rem);
-      line-height: 1;
-      color: #fff;
-    }
-
-    .pricing-price span {
-      font-size: 1rem;
-      color: var(--muted);
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-    }
-
-    .pricing-desc {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .pricing-features {
-      list-style: none;
-      margin: 0 0 28px;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-      flex: 1;
-    }
-
-    .pricing-features li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .pricing-features li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* ── COACHES ── */
-    .coaches-section {
-      margin-bottom: var(--section-space);
-    }
-
-    .coaches {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .coach-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 28px;
-      padding: 32px 24px;
-      display: grid;
-      gap: 14px;
-      text-align: center;
-      transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .coach-card:hover { border-color: rgba(255,91,20,0.35); transform: translateY(-4px); }
-
-    .coach-avatar {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      display: grid;
-      place-items: center;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #fff;
-      box-shadow: 0 12px 30px rgba(255,91,20,0.3);
-    }
-
-    .coach-name {
-      margin: 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .coach-role {
-      margin: 0;
-      color: var(--accent);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-    }
-
-    .coach-copy {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    /* ── CONTACT ── */
-    .contact-section {
-      margin-bottom: var(--section-space);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .contact-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 28px;
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .contact-card h3 {
-      margin: 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.4rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .contact-row {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .contact-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,91,20,0.12);
-      border-radius: 50%;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .contact-row p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    .contact-row strong {
-      display: block;
-      color: var(--text);
-      font-size: 0.95rem;
-      margin-bottom: 2px;
-    }
-
     /* ── FAQ ── */
     .faq-section {
       margin-bottom: var(--section-space);
     }
 
-    .faq {
-      display: grid;
-      gap: 14px;
+    .section-header {
+      text-align: center;
+      margin-bottom: 44px;
     }
+
+    .section-header .section-title {
+      margin: 8px 0 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .faq { display: grid; gap: 14px; }
 
     .faq-item {
       background: rgba(255,255,255,0.03);
@@ -728,30 +410,21 @@
       font-size: 0.9rem;
     }
 
-    .footer-social {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
+    .footer-social { display: flex; gap: 20px; align-items: center; }
 
     .footer-social a {
       color: var(--muted);
       font-size: 0.9rem;
-      transition: color 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      transition: color 0.2s;
     }
 
     .footer-social a:hover { color: var(--accent); }
 
     /* ── BANNER QUOTE ── */
     .banner-quote {
-      background: linear-gradient(135deg, rgba(255,91,20,0.08) 0%, rgba(7,7,7,0.6) 100%);
       position: relative;
       color: #fff;
       overflow: hidden;
-      border: 1px solid rgba(255,91,20,0.15);
     }
 
     .banner-left, .banner-right { position: relative; z-index: 2; }
@@ -774,19 +447,11 @@
       opacity: 0.9;
     }
 
-    .banner-right p {
-      margin: 0;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.7;
-    }
+    .banner-right p { margin: 0; color: rgba(255,255,255,0.82); line-height: 1.7; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1060px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding-top: 56px;
-      }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 56px; }
       .hero-copy { max-width: none; }
       .hero-visual { justify-items: start; }
       .hero-phone { width: min(380px, 100%); }
@@ -796,35 +461,22 @@
       .phones-grid { width: min(480px, 100%); }
       .app-quote { grid-template-columns: 1fr; }
       .banner-right { justify-content: flex-start; }
-      .section-split { grid-template-columns: 1fr; }
-      .section-split .image-block { max-width: 680px; }
-      .coaches { grid-template-columns: 1fr 1fr; }
-      .pricing-grid { grid-template-columns: 1fr 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
-      header {
-        padding-top: 18px;
-        padding-bottom: 14px;
-        flex-wrap: nowrap;
-        gap: 14px;
-      }
+      header { flex-wrap: nowrap; gap: 14px; }
+      header .btn-primary { display: none; }
+
       .nav {
         gap: 16px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding-bottom: 2px;
       }
       .nav::-webkit-scrollbar { display: none; }
       .nav a { font-size: 0.85rem; }
-      header .btn-primary { display: none; }
 
-      .hero {
-        padding-top: 40px;
-        padding-bottom: 56px;
-      }
+      .hero { padding-top: 40px; padding-bottom: 56px; }
       .hero-title { font-size: clamp(2.6rem, 9vw, 3.8rem); }
       .hero-buttons { flex-direction: column; align-items: flex-start; }
       .hero-buttons .btn-primary,
@@ -833,29 +485,18 @@
       .features { grid-template-columns: 1fr 1fr; gap: 12px; }
       .section-light { border-radius: 22px; }
 
-      .phones-grid {
-        grid-template-columns: repeat(3, 1fr);
-        width: 100%;
-      }
+      .why-section { border-radius: 22px; padding: clamp(32px, 6vw, 52px) clamp(20px, 5vw, 36px); }
+
+      .phones-grid { grid-template-columns: repeat(3, 1fr); width: 100%; }
       .phones-grid img:nth-child(2),
       .phones-grid img:nth-child(3) { transform: translateY(0); }
 
       .app-quote { border-radius: 22px; }
       .banner-right::before { display: none; }
 
-      .section-split .image-block img { min-height: 260px; }
-
-      .pricing-grid { grid-template-columns: 1fr; }
-
-      .coaches { grid-template-columns: 1fr; }
-
-      .faq-section,
-      .coaches-section,
-      .pricing,
-      .contact-section { margin-bottom: 56px; }
+      .faq-section { margin-bottom: 56px; }
 
       footer { flex-direction: column; align-items: flex-start; gap: 14px; }
-
       .page { padding-bottom: 40px; }
     }
 
@@ -866,6 +507,7 @@
 </head>
 <body>
   <div class="page">
+
     <header>
       <a href="#hero" class="logo-link">
         <img src="FluxFit_logo.png" alt="FluxFit logo" class="logo-img">
@@ -873,22 +515,20 @@
       <nav class="nav">
         <a href="#hero">Experiencia</a>
         <a href="#app">App</a>
-        <a href="#precios">Precios</a>
-        <a href="#coaches">Coaches</a>
         <a href="#faq">FAQ</a>
       </nav>
       <a class="btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Probá una clase</a>
     </header>
 
-    <!-- HERO -->
+    <!-- 1. HERO -->
     <section class="hero" id="hero">
       <div class="hero-copy">
         <p class="eyebrow">Powered by transformation</p>
-        <h1 class="hero-title">A una clase de empezar tu transformación.</h1>
-        <p class="hero-text">Entrenamiento, seguimiento y comunidad para ayudarte a construir una mejor versión de vos mismo.</p>
+        <h1 class="hero-title">A una clase de comenzar tu transformación.</h1>
+        <p class="hero-text">Entrenamiento, seguimiento y comunidad para que cada clase te acerque a tus objetivos.</p>
         <div class="hero-buttons">
           <a class="btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Probá una clase gratis</a>
-          <a class="btn-outline" href="#precios">Ver planes</a>
+          <a class="btn-outline" href="#app">Conocé la app</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -898,7 +538,7 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
+    <!-- 2. EXPERIENCIA FLUX -->
     <section class="section-light">
       <div style="max-width:820px; margin:0 auto; text-align:center;">
         <p class="eyebrow" style="margin-bottom:10px;">Entrenar es solo una parte.</p>
@@ -928,7 +568,15 @@
       </div>
     </section>
 
-    <!-- APP -->
+    <!-- 3. POR QUÉ ELEGIR FLUX -->
+    <section class="why-section">
+      <p class="eyebrow" style="margin:0;">Por qué elegir Flux</p>
+      <h2 class="why-title">Porque cambiar es fácil<br>cuando estás motivado.</h2>
+      <p class="why-hook">Lo difícil es sostenerlo.</p>
+      <p class="why-body">En Flux creemos que la transformación personal no debería depender de cómo te sentís hoy. Por eso combinamos entrenamiento, tecnología, seguimiento y comunidad en una experiencia diseñada para ayudarte a mantener el rumbo y convertirte en la persona que querés ser.</p>
+    </section>
+
+    <!-- 4. APP -->
     <section id="app">
       <div class="app-hero">
         <div class="app-hero-copy">
@@ -958,151 +606,7 @@
       </div>
     </section>
 
-    <!-- FLUX CLASS -->
-    <section class="section-split">
-      <div class="text-block">
-        <p class="eyebrow">Nuestra clase insignia</p>
-        <h2>Flux Class</h2>
-        <p>Nuestra experiencia principal combina entrenamiento grupal con programación guiada y seguimiento desde la app. Ideal para quienes buscan resultados reales sin perder la motivación.</p>
-        <ul>
-          <li>Entrenamiento grupal con objetivos individuales.</li>
-          <li>Programación guiada y escalable para cualquier nivel.</li>
-          <li>Seguimiento desde la app y comunidad activa.</li>
-          <li>Coaches presentes en cada clase.</li>
-        </ul>
-        <a class="btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Reservá tu lugar</a>
-      </div>
-      <div class="image-block">
-        <img src="img/fondoweb.png" alt="Clase FluxFit en acción">
-      </div>
-    </section>
-
-    <!-- WHY FLUX -->
-    <section class="why-section">
-      <p class="eyebrow" style="margin:0;">Por qué elegir Flux</p>
-      <h2 class="why-title">En Flux no creemos<br>en soluciones rápidas.</h2>
-      <p class="why-body">Creemos en los progresos constantes, los hábitos que perduran y un entrenamiento con propósito. Con metodología, seguimiento y una comunidad que acompaña tu camino, te ayudamos a convertir el movimiento en un estilo de vida.</p>
-      <p class="why-close">Porque transformar tu cuerpo es importante.<br><span class="accent">Transformar tus hábitos lo cambia todo.</span></p>
-    </section>
-
-    <!-- PRICING -->
-    <section class="pricing" id="precios">
-      <div class="section-header">
-        <p class="eyebrow">Planes y precios</p>
-        <h2 class="section-title">Encontrá tu plan ideal</h2>
-      </div>
-      <div class="pricing-grid">
-
-        <div class="pricing-card">
-          <p class="pricing-plan">Plan Inicio</p>
-          <p class="pricing-price">$XX.000<span> / mes</span></p>
-          <p class="pricing-desc">Para empezar a moverte sin complicaciones.</p>
-          <ul class="pricing-features">
-            <li>Acceso al gimnasio</li>
-            <li>Clases grupales ilimitadas</li>
-            <li>Vestuarios y duchas</li>
-          </ul>
-          <a class="btn-outline" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultá</a>
-        </div>
-
-        <div class="pricing-card featured">
-          <span class="pricing-badge">⭐ Más popular</span>
-          <p class="pricing-plan">Plan Flux</p>
-          <p class="pricing-price">$XX.000<span> / mes</span></p>
-          <p class="pricing-desc">La experiencia completa con tecnología y seguimiento.</p>
-          <ul class="pricing-features">
-            <li>Todo lo del Plan Inicio</li>
-            <li>Acceso a la App Flux</li>
-            <li>Seguimiento de progreso</li>
-            <li>Comunidad y retos mensuales</li>
-          </ul>
-          <a class="btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Empezar ahora</a>
-        </div>
-
-        <div class="pricing-card">
-          <p class="pricing-plan">Plan Elite</p>
-          <p class="pricing-price">$XX.000<span> / mes</span></p>
-          <p class="pricing-desc">Para quienes buscan el máximo nivel de atención.</p>
-          <ul class="pricing-features">
-            <li>Todo lo del Plan Flux</li>
-            <li>Sesiones personales mensuales</li>
-            <li>Plan de nutrición básico</li>
-            <li>Acceso a todas las sedes</li>
-          </ul>
-          <a class="btn-outline" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Consultá</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- COACHES -->
-    <section class="coaches-section" id="coaches">
-      <div class="section-header">
-        <p class="eyebrow">Quiénes te acompañan</p>
-        <h2 class="section-title">Nuestros Coaches</h2>
-      </div>
-      <div class="coaches">
-        <article class="coach-card">
-          <div class="coach-avatar">R</div>
-          <p class="coach-name">Rodri</p>
-          <p class="coach-role">Head Coach</p>
-          <p class="coach-copy">Especialista en entrenamiento funcional y rendimiento. Diseña la programación que hace que cada clase cuente.</p>
-        </article>
-        <article class="coach-card">
-          <div class="coach-avatar">N</div>
-          <p class="coach-name">Nati</p>
-          <p class="coach-role">Coach</p>
-          <p class="coach-copy">Especialista en fuerza y movimiento. Su enfoque en técnica y progresión hace la diferencia en cada sesión.</p>
-        </article>
-        <article class="coach-card">
-          <div class="coach-avatar">F</div>
-          <p class="coach-name">Fede</p>
-          <p class="coach-role">Coach</p>
-          <p class="coach-copy">Experto en acondicionamiento físico y salud integral para un entrenamiento sostenible a largo plazo.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact-section" id="contacto">
-      <div class="section-header">
-        <p class="eyebrow">Encontranos</p>
-        <h2 class="section-title">Dónde estamos</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Sede Principal</h3>
-          <div class="contact-row">
-            <div class="contact-icon">📍</div>
-            <p><strong>Dirección</strong>Tu dirección acá, Buenos Aires</p>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">🕐</div>
-            <p><strong>Horarios</strong>Lunes a viernes: 7 hs – 22 hs<br>Sábados: 9 hs – 14 hs</p>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">📞</div>
-            <p><strong>Teléfono</strong><a href="tel:+5491136727717" style="color:var(--accent);">+54 9 11 3672-7717</a></p>
-          </div>
-        </div>
-        <div class="contact-card">
-          <h3>Hablanos</h3>
-          <div class="contact-row">
-            <div class="contact-icon">💬</div>
-            <p><strong>WhatsApp</strong>Escribinos para consultar precios, horarios o reservar tu primera clase.</p>
-          </div>
-          <div style="margin-top:8px;">
-            <a class="btn-primary" href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">Escribir por WhatsApp</a>
-          </div>
-          <div class="contact-row" style="margin-top:12px;">
-            <div class="contact-icon">📧</div>
-            <p><strong>Email</strong><a href="mailto:info@fluxfit.com.ar" style="color:var(--accent);">info@fluxfit.com.ar</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
+    <!-- 5. FAQ -->
     <section class="faq-section" id="faq">
       <div class="section-header">
         <p class="eyebrow">Tus dudas, resueltas</p>
@@ -1115,7 +619,7 @@
         </article>
         <article class="faq-item">
           <h3 class="faq-question">¿Qué incluye la membresía?</h3>
-          <p class="faq-answer">Dependiendo del plan, incluye acceso al gym, clases grupales ilimitadas, app de seguimiento, comunidad y beneficios exclusivos. Consultá nuestros planes arriba.</p>
+          <p class="faq-answer">Acceso al gym, clases grupales ilimitadas, app de seguimiento y comunidad activa. Escribinos para conocer el detalle de cada plan.</p>
         </article>
         <article class="faq-item">
           <h3 class="faq-question">¿Cómo reservo una clase?</h3>
@@ -1135,17 +639,12 @@
     <footer>
       <div>© 2026 FluxFit. Todos los derechos reservados.</div>
       <div class="footer-social">
-        <a href="https://www.instagram.com/fluxfit" target="_blank" rel="noreferrer">
-          <span>Instagram</span>
-        </a>
-        <a href="https://www.facebook.com/fluxfit" target="_blank" rel="noreferrer">
-          <span>Facebook</span>
-        </a>
-        <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">
-          <span>WhatsApp</span>
-        </a>
+        <a href="https://www.instagram.com/fluxfit" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/fluxfit" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://wa.me/5491136727717" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </footer>
+
   </div>
 </body>
 </html>

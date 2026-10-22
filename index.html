@@ -132,15 +132,20 @@
 
     /* ── HERO ── */
     .hero {
-      display: grid;
-      grid-template-columns: minmax(280px, 1.05fr) minmax(280px, 0.95fr);
-      gap: clamp(36px, 6vw, 84px);
+      --gutter: clamp(18px, 4vw, 36px);
+      position: relative;
+      display: flex;
       align-items: center;
       min-height: 88vh;
-      padding: 80px 0 var(--section-space);
+      margin: 0 calc(50% - 50vw) var(--section-space-tight);
+      padding: 80px max(var(--gutter), calc((100vw - 1240px) / 2 + var(--gutter))) 110px;
+      background:
+        linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0) 22%, rgba(5,5,5,0) 70%, #050505 100%),
+        linear-gradient(90deg, rgba(5,5,5,0.94) 0%, rgba(5,5,5,0.78) 38%, rgba(5,5,5,0.35) 75%, rgba(5,5,5,0.2) 100%),
+        url('img/flux.jpg') center 62% / cover no-repeat;
     }
 
-    .hero-copy { max-width: 560px; }
+    .hero-copy { max-width: 560px; position: relative; text-shadow: 0 2px 24px rgba(0,0,0,0.5); }
 
     .hero-title {
       margin: 0;
@@ -164,30 +169,6 @@
       flex-wrap: wrap;
       gap: 14px;
     }
-
-    .hero-visual { display: grid; place-items: center; }
-
-    .hero-phone {
-      position: relative;
-      width: min(540px, 100%);
-      aspect-ratio: 4 / 5;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: var(--shadow);
-      background: #111;
-    }
-
-    .hero-phone::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.1), transparent 40%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero-phone img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ── FEATURES ── */
     .section-light {
@@ -458,10 +439,15 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1060px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 56px; }
+      .hero {
+        min-height: 80vh;
+        padding-top: 56px;
+        align-items: flex-end;
+        background:
+          linear-gradient(180deg, rgba(5,5,5,0.45) 0%, rgba(5,5,5,0.55) 45%, rgba(5,5,5,0.9) 80%, #050505 100%),
+          url('img/flux.jpg') center 40% / cover no-repeat;
+      }
       .hero-copy { max-width: none; }
-      .hero-visual { justify-items: start; }
-      .hero-phone { width: min(380px, 100%); }
       .app-hero { grid-template-columns: 1fr; }
       .app-hero-copy { max-width: none; }
       .app-phones { justify-content: flex-start; margin-top: 8px; }
@@ -536,11 +522,6 @@
         <div class="hero-buttons">
           <a class="btn-primary" href="https://wa.me/5491136727717?text=Hola%2C%20vi%20la%20web%20de%20FluxFit%20y%20me%20gustar%C3%ADa%20reservar%20mi%20primera%20clase%20de%20prueba.%20%C2%BFMe%20pod%C3%A9s%20indicar%20horarios%20disponibles%3F%20%C2%A1Gracias%21" target="_blank" rel="noreferrer">Probá una clase gratis</a>
           <a class="btn-outline" href="#app">Conocé la app</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-phone">
-          <img src="img/flux.jpg" alt="Sala de entrenamiento de FluxFit">
         </div>
       </div>
     </section>

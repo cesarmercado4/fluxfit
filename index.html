@@ -136,12 +136,14 @@
       position: relative;
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      text-align: right;
       min-height: 88vh;
       margin: 0 calc(50% - 50vw) var(--section-space-tight);
       padding: 80px max(var(--gutter), calc((100vw - 1240px) / 2 + var(--gutter))) 110px;
       background:
         linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0) 22%, rgba(5,5,5,0) 70%, #050505 100%),
-        linear-gradient(90deg, rgba(5,5,5,0.94) 0%, rgba(5,5,5,0.78) 38%, rgba(5,5,5,0.35) 75%, rgba(5,5,5,0.2) 100%),
+        linear-gradient(270deg, rgba(5,5,5,0.94) 0%, rgba(5,5,5,0.78) 38%, rgba(5,5,5,0.35) 75%, rgba(5,5,5,0.2) 100%),
         url('img/flux.jpg') center 62% / cover no-repeat;
     }
 
@@ -161,11 +163,13 @@
       color: var(--muted);
       font-size: 1rem;
       max-width: 480px;
+      margin-left: auto;
     }
 
     .hero-buttons {
       margin-top: 34px;
       display: flex;
+      justify-content: flex-end;
       flex-wrap: wrap;
       gap: 14px;
     }

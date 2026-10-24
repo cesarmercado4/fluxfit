@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTR4WLK8F6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GTR4WLK8F6');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="FluxFit – Entrenamiento grupal, tecnología y comunidad para transformar tu cuerpo. Probá tu primera clase gratis en Buenos Aires.">
@@ -642,5 +650,16 @@
     </footer>
 
   </div>
+  <script>
+    // Cuenta cada clic a WhatsApp como consulta (generate_lead)
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href*="wa.me"]');
+      if (!link) return;
+      gtag('event', 'generate_lead', {
+        method: 'whatsapp',
+        link_text: link.textContent.trim()
+      });
+    });
+  </script>
 </body>
 </html>
